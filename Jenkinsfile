@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                bat '.\myEnv\Scripts\python3 manage.py runserver'
+                bat '.\\myEnv\\Scripts\\python3 manage.py runserver'
             }
         }
     }
