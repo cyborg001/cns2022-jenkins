@@ -1,0 +1,20 @@
+{% extends 'sismologico/layout.html' %}
+{% load static %}
+{% block title %}Sismo {{ lat }}{{ lon }}{% endblock %}
+
+{% block body%}
+
+<div class='row' >
+    
+    <div class="sidenav2 col-md-5 col-lg-5">
+        <p class='p-sismo' id={{id}}></p>
+        <div class='sidenav-content col-md-5 col-lg-5'></div>
+    </div>
+  
+    <div class="main col-md-7 col-lg-7" id='div-mapa2'>
+      
+    </div>
+</div><hr>
+<div class='container data2'></div>
+<script src= '{% static "sismologico/scripts/script2.js" %}' type="text/babel"> </script>
+{% endblock%}

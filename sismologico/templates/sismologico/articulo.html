@@ -1,0 +1,19 @@
+{% extends 'sismologico/layout.html' %}
+{% load static %}
+{% block title %}Centro Nacional de Sismologia (UASD){% endblock %}
+   
+{% block body%}
+<div class='row container-fluid'>
+    <div id='articulo' class='col-md-8'>
+        <h1>{{ articulo.title }}</h1>
+        <p><img id='imagen_articulo' src="{% static articulo.img_url %}" alt="{ articulo.alt }"></p>
+        {% for parrafo in articulo.content %}
+            <p class='parrafo_articulo'>{{ parrafo }} </p></br>
+        {% empty %}
+            <p class='parrafo_articuloS'>No existe el contenido</p>
+        {% endfor %}
+
+    </div>
+    <div class='col-md-4'></div>
+</div>
+{% endblock %}

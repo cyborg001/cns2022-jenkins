@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+    <!-- Carga el css -->
+    <link href="{% static 'sismologico/css/style.css' %}" rel="stylesheet">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <!-- carga el mapa -->
+    <link rel="stylesheet" href="{% static 'sismologico/leaflet/leaflet.css' %}" />
+    <script src="{% static 'sismologico/leaflet/leaflet.js' %}"></script>
+</head>
+<body class="custom-layout">
+    <div class='container-fluid' id='div_principal'>
+      <img id='img-banner' src="{% static 'sismologico/images/banner_sismologico.jpg' %}" alt="banner del sismologico" width="100%">
+    </div>
+    <nav class="container-fluid navbar sticky-top navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'inicio' %}">CNS</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle color-dropdown" href="#" id="navbardrop-nosotros" data-toggle="dropdown">
+                Nosotros
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item " href="{% url 'quienes' %}">Quienes somos?</a>
+                <a class="dropdown-item " href="{% url 'historia' %}">Historia</a>
+                <a class="dropdown-item " href="{% url 'base_legal' %}">Base Legal</a>
+                <a class="dropdown-item " href="{% url 'definicion' %}">Definición</a>    
+                <a class="dropdown-item " href="{% url 'funciones' %}">Funciones</a>               
+              </div>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sismos' %}">Sismos</a>
+            </li>
+           
+            
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle color-dropdown" href="#" id="navbardrop-sismicidad" data-toggle="dropdown">
+                  Sismicidad
+                </a>
+                <div class="dropdown-menu">
+                 <a class="dropdown-item " href="">Catálogo</a>
+                  <a class="dropdown-item " href="#">Sismos Históricos</a>
+                  <a class="dropdown-item " href="#">Boletines</a>
+                  <a class="dropdown-item " href="#">Solicitud de Informes</a>                  
+                </div>
+            </li> 
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle color-dropdown" href="#" id="navbardrop-educacion" data-toggle="dropdown">
+                  Servicios
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item " href="#">Educacion</a>
+                  <a class="dropdown-item " href="#">Visitas</a>
+                  <a class="dropdown-item " href="#">Videoteca Virtual</a>
+                  <a class="dropdown-item " href="#">Biblioteca Virtual</a>                  
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle color-dropdown" href="#" id="navbardrop-investigacion" data-toggle="dropdown">
+                  Investigacion
+                </a>
+                <div class="dropdown-menu ">
+                  <a class="dropdown-item" href="{% url 'lineas' %}">Lineas de Investigacion</a>
+                  <a class="dropdown-item " href="{% url 'acuerdos' %}">Acuerdos Institucionales</a>
+                  <a class="dropdown-item" href="{% url 'proyectos' %}">Proyectos</a>               
+                </div>
+            </li>
+
+           
+
+          </ul>
+
+        </div>
+        <div class="" id='navitem-sini'>
+          <a class="nav-link" href="http://nodosini.cns-uasd.edu.do/">Sini</a>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+</body>
+<footer class='container-fluid'>
+ <hr>
+  <div>
+    <p class='text-left' id='credenciales'><strong>Centro Nacional de Sismología</strong></p>
+    <p class='text-left' id='credenciales2'><strong>© 2021 Sismológico UASD</strong></p>
+    <!-- <p class='text-right'><i>Creado por  <a href="https://www.linkedin.com/in/lic--ramirez-69613059/" >Carlos Ramirez</a></a></i></p> -->
+  </div>
+  </footer>
+</html>

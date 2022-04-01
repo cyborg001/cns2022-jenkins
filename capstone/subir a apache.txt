@@ -1,0 +1,27 @@
+LoadModule wsgi_module "c:/python38/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd"
+WSGIScriptAlias / "C:/Users/cgrs27/Documents/web50/projects/2020/x/capstone/capstone/capstone/wsgi.py"
+WSGIPythonHome "C:/python38"
+WSGIPythonPath "C:/Users/cgrs27/Documents/web50/projects/2020/x/capstone/capstone"
+
+#Alias /media/ D:/SHARE/ui_demo/media/
+Alias /static/ C:/Users/cgrs27/Documents/web50/projects/2020/x/capstone/capstone/sismologico/static/
+
+<Directory C:/Users/cgrs27/Documents/web50/projects/2020/x/capstone/capstone/sismologico/static>
+	Require all granted
+</Directory>
+
+<Directory "C:/Users/cgrs27/Documents/web50/projects/2020/x/capstone/capstone">
+	<Files wsgi.py>
+		Require all granted
+	</Files>
+</Directory>
+
+
+################################################
+para reparar el eror del vscr110.dll seguir los siguientes pasos
+
+
+anadir al archivo asgiref\__init__.py 
+
+if sys.platform == "win32" and sys.version_info >= (3, 8, 0):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())

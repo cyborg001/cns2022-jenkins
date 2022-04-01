@@ -1,0 +1,49 @@
+{% extends 'sismologico/layout.html' %}
+{% load static %}
+{% block title %}Centro Nacional de Sismologia (UASD){% endblock %}
+
+{% block body%}
+<div class="container-fluid" id='div-carousel'>
+  <div class='row row_carousel  justify-content-center'>
+    <div class='col-md-8'>
+      <br>
+      <div id="myCarousel container" class="carousel slide" data-ride="carousel" data-interval='6000'>
+    
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ul>
+        
+        <!-- se crea el carousel dinamico -->
+          <div class="carousel-inner">
+            {% for article in articles %}
+                {% if forloop.first %}
+                <div class='carousel-item active'>
+                {% else %}
+                <div class='carousel-item'>
+                {% endif %}
+                  <a href='{% url "articulo" article.id %}'><img src= '{% static article.img_url %}' alt='{{ article.alt }}' ></a>
+                    <hr>
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.preview_content }} </p><a href='{% url "articulo" article.id %}'>Leer mas...</a>
+                </div>
+            {% empty %}
+                <p>No articulos creados</p>
+            {% endfor %}
+          </div>
+        
+        <!-- Left and right controls -->
+        <!-- <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a> -->
+      </div>
+    </div>
+    <div class='col-md-4'>Articulos antiguos</div> 
+  </div>
+</div>
+{% endblock %}

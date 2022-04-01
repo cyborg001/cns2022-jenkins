@@ -1,0 +1,51 @@
+{% extends 'sismologico/layout.html' %}
+{% load static %}
+{% block title %}Sismos{% endblock %}
+{% block body%}
+<div class='container-fluid' id="div-index1">
+  
+  
+
+  <div class="row " id="div-row">
+    <div class="col-lg-7 col-md-6 container">
+      <h4>ULTIMOS SISMOS</h4>
+      Hora local(UTC-04:00) Republica Dominicana.
+    </div>
+    <div class="col-lg-5 col-md-6"></div>
+    <div class="sidebar col-lg-7 col-md-6 container " id="sidebar" >
+      <div id='div-table' class='table-responsive-sm    
+      table-responsive-md table-responsive-lg table-responsive-xl'>
+          <table class="table table-borderless table-striped ">
+              <thead class=' font-weight-bolder'>
+                   <tr>
+                       <th class='ths bg-info fecha' rowspan="2">Fecha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id='span-fecha'>aaaa-mm-dd</span></th>
+                       <th class='ths bg-info hora' rowspan="2">Hora&nbsp;&nbsp; hh:mm:ss</th>
+                       <th class='ths bg-info'>Latitud</th>
+                       <th class='ths bg-info'>Longitud</th>
+                       <th class='ths bg-info prof'>Prof.&nbsp; (km)</th>
+                       <th class='ths bg-info'>Mag.</th>
+                       <th class='ths bg-info'>Comentario</th>
+                   </tr>
+              </thead>
+              <tbody id='tbody_datos'>
+                  
+              </tbody>
+          </table>
+      </div>
+    </div>
+
+    <div class="col-lg-5 container col-md-6  border-left" id="div-mapa">
+      
+      <div id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;"></div>
+    </div>
+
+
+  </div>
+</div>
+
+  <script src= '{% static "sismologico/scripts/script1.js" %}' type="text/babel"> </script>
+{% endblock %}
+
+<!-- here goes the footer -->
+{% block footer%}
+{% endblock%}
